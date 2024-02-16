@@ -6,7 +6,7 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 11:55:57 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/14 00:49:33 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/16 20:32:22 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,52 +78,26 @@ void	ft_swap_4(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-void	ft_swap_5(t_stack *stack_a, t_stack *stack_b)
+void	ft_final_swap(int argc, t_stack *stack_a, t_stack *stack_b)
 {
-	t_stack	*head;
+	int	i;
 
-	stack_b = stack_a;
-	stack_a = ft_double_push(stack_a, stack_b);
-	ft_swap_3(stack_a);
-	head = stack_b;
-	if (stack_a->i > stack_b->prev->i)
+	i = 0;
+	if (argc == 4)
 	{
-		stack_b = ft_reverse_rotate_b(stack_b);
-		head = stack_b->next;
-		stack_a = ft_push_a(stack_a, stack_b);
-		stack_b = head;
+		stack_b = ft_final_rotate(stack_b);
+		stack_a = stack_b;
+		while (stack_b)
+		{
+			i++;
+			stack_b = stack_b->next;
+			if (stack_a->i == stack_b->i)
+				break ;
+		}
+		while (i > 0)
+		{
+			printf("pa\n");
+			i--;
+		}
 	}
-	if (stack_a->prev->i < stack_b->i)
-	{
-		head = stack_b->next;
-		stack_a = ft_push_a(stack_a, stack_b);
-		stack_b = head;
-		stack_a = ft_rotate_a(stack_a);
-	}
-	stack_b = head;
-	stack_b = ft_final_push(stack_a, stack_b);
-}
-
-void	ft_swap_6(t_stack *stack_a, t_stack *stack_b)
-{
-	t_stack	*head;
-
-	ft_swap_3(stack_a);
-	head = stack_b;
-	if (stack_a->i > stack_b->prev->i)
-	{
-		stack_b = ft_reverse_rotate_b(stack_b);
-		head = stack_b->next;
-		stack_a = ft_push_a(stack_a, stack_b);
-		stack_b = head;
-	}
-	if (stack_a->prev->i < stack_b->i)
-	{
-		head = stack_b->next;
-		stack_a = ft_push_a(stack_a, stack_b);
-		stack_b = head;
-		stack_a = ft_rotate_a(stack_a);
-	}
-	stack_b = head;
-	stack_b = ft_final_push(stack_a, stack_b);
 }

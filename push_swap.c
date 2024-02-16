@@ -6,78 +6,38 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 16:57:09 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/14 01:41:43 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/16 20:19:14 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_print_rotate(int i)
+void	ft_swap(int argc, t_stack *stack_a, t_stack *stack_b)
 {
-	while (i > 0)
-	{
-		printf("rb\n");
-		i--;
-	}
-	while (i < 0)
-	{
-		printf("rrb\n");
-		i++;
-	}
-	return (0);
-}
+	int		rn;
+	int		rrn;
+	t_stack	*head;
 
-int	ft_step_by_step_push(int i, t_stack *stack_a, t_stack *stack_b)
-{
-	if (stack_a->i > stack_b->i)
+	rn = ft_rotate_dfs(0, stack_a, stack_b);
+	rrn = ft_reverse_rotate_dfs(0, stack_a, stack_b);
+	if (ft_rotate_search_a(rn, stack_a,
+			stack_b) < ft_reverse_rotate_search_a(rrn, stack_a, stack_b))
 	{
-		i = ft_print_rotate(i);
-		stack_b = ft_push_b(stack_a, stack_b);
-	}
-	else if (stack_a->i < stack_b->prev->i)
-	{
-		i = ft_print_rotate(i);
-		stack_b = ft_push_b(stack_a, stack_b);
-		printf("rb\n");
+		stack_a = ft_simple_rotate(1, rn, stack_a);
+		head = stack_a->next;
+		stack_b = ft_complex_rotate(1, rn, stack_a, stack_b);
 	}
 	else
 	{
-		while (stack_a->i < stack_b->i)
-		{
-			stack_b = stack_b->next;
-			i++;
-		}
-		i = ft_print_rotate(i);
-		stack_b = ft_push_b(stack_a, stack_b);
-		while (stack_b->i < stack_b->prev->i)
-		{
-			stack_b = stack_b->prev;
-			i--;
-		}
-	}
-	return (i);
-}
-
-void	ft_swap(int argc, t_stack *stack_a, t_stack *stack_b)
-{
-	int		i;
-	t_stack	*head;
-
-	i = 0;
-	stack_b = stack_a;
-	stack_a = ft_double_push(stack_a, stack_b);
-	head = stack_a->next;
-	while (argc > 6)
-	{
-		i = ft_step_by_step_push(i, stack_a, stack_b);
-		stack_a = head;
+		stack_a = ft_simple_rotate(0, rrn, stack_a);
 		head = stack_a->next;
-		if (stack_b->i < stack_b->prev->i)
-			stack_b = stack_b->prev;
-		argc--;
+		stack_b = ft_complex_rotate(0, rrn, stack_a, stack_b);
 	}
-	i = ft_print_rotate(i);
-	ft_swap_6(stack_a, stack_b);
+	stack_b = ft_push_b(stack_a, stack_b);
+	if (argc > 4)
+		ft_swap(argc - 1, head, stack_b);
+	else
+		ft_final_swap(argc, head, stack_b);
 }
 
 void	push_swap(int argc, t_stack *stack_a, t_stack *stack_b)
@@ -88,8 +48,10 @@ void	push_swap(int argc, t_stack *stack_a, t_stack *stack_b)
 		ft_swap_3(stack_a);
 	else if (4 < argc && argc < 6)
 		ft_swap_4(stack_a, stack_b);
-	else if (5 < argc && argc < 7)
-		ft_swap_5(stack_a, stack_b);
-	else
+	else if (5 < argc)
+	{
+		stack_b = stack_a;
+		stack_a = ft_double_push(stack_a, stack_b);
 		ft_swap(argc, stack_a, stack_b);
+	}
 }

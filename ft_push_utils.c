@@ -6,7 +6,7 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 16:58:25 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/14 01:12:34 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/16 18:43:51 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,9 @@ t_stack	*ft_double_push(t_stack *stack_a, t_stack *stack_b)
 	stack_b->prev = stack_b->next;
 	stack_b->next->next = stack_b;
 	printf("pb\npb\n");
-	if (stack_b->i < stack_b->next->i)
-	{
-		i = stack_b->i;
-		stack_b->i = stack_b->next->i;
-		stack_b->next->i = i;
-	}
-	else
-		printf("rb\n");
+	i = stack_b->i;
+	stack_b->i = stack_b->next->i;
+	stack_b->next->i = i;
 	return (head);
 }
 
