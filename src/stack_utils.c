@@ -6,7 +6,7 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 09:40:16 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/20 14:25:29 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/20 21:39:07 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,22 +49,25 @@ t_stack	*ft_free_stack(t_stack *stack_a)
 {
 	t_stack	*tmp;
 
-	if (!stack_a)
-		return (NULL);
 	if (stack_a->prev)
 		stack_a->prev->next = NULL;
-	if (!stack_a->next)
-		free(stack_a);
-	else
+	while (stack_a)
 	{
-		while (stack_a->next)
-		{
-			tmp = stack_a->next;
-			free(stack_a);
-			stack_a = tmp;
-		}
+		tmp = stack_a->next;
+		free(stack_a);
+		stack_a = tmp;
 	}
 	return (NULL);
+}
+
+t_stack	*ft_malloc_next_stack(t_stack *stack_a)
+{
+	stack_a->next = ft_malloc_stack();
+	if (!stack_a->next)
+		return (NULL);
+	stack_a->next->prev = stack_a;
+	stack_a = stack_a->next;
+	return (stack_a);
 }
 
 t_stack	*ft_malloc_stack(void)

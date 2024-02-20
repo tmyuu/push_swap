@@ -6,7 +6,7 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 16:57:09 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/20 15:23:14 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/20 21:24:57 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,11 @@ void	ft_swap(int argc, t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-void	push_swap(int argc, t_stack *stack_a, t_stack *stack_b)
+void	push_swap(t_stack *stack_a, t_stack *stack_b)
 {
+	int	argc;
+
+	argc = ft_argc(stack_a) + 1;
 	if (2 < argc && argc < 4)
 		ft_swap_2(stack_a);
 	else if (3 < argc && argc < 5)

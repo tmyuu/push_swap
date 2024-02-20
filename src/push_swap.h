@@ -6,7 +6,7 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 09:32:30 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/20 14:30:22 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/20 21:39:45 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-void				push_swap(int argc, t_stack *stack_a, t_stack *stack_b);
+void				push_swap(t_stack *stack_a, t_stack *stack_b);
 void				ft_swap(int argc, t_stack *stack_a, t_stack *stack_b);
 void				ft_final_swap_1(t_stack *stack_a, t_stack *stack_b);
 void				ft_final_swap_2(t_stack *stack_a, t_stack *stack_b);
@@ -79,12 +79,17 @@ t_stack				*ft_double_push(t_stack *stack_a, t_stack *stack_b);
 t_stack				*ft_push_a(t_stack *stack_a, t_stack *stack_b);
 t_stack				*ft_push_b(t_stack *stack_a, t_stack *stack_b);
 
+int					ft_argc(t_stack *stack_a);
+int					ft_just_while(int i, const char *str);
+int					ft_atoi_util(int i, int sign, const char *str,
+						t_stack *stack_a);
 int					ft_atoi(const char *str, t_stack *stack_a);
 int					ft_prep_stack(char **argv, t_stack *stack_a);
 
 int					ft_check_stack(t_stack *stack_a, int tmp);
 int					ft_connect_stack(t_stack *stack_a);
 t_stack				*ft_free_stack(t_stack *stack_a);
+t_stack				*ft_malloc_next_stack(t_stack *stack_a);
 t_stack				*ft_malloc_stack(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 11:50:33 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/20 14:25:26 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/20 21:15:24 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 		stack_a = ft_malloc_stack();
 		if (ft_prep_stack(argv + 1, stack_a))
 			if (ft_connect_stack(stack_a))
-				push_swap(argc, stack_a, stack_b);
+				push_swap(stack_a, stack_b);
 		stack_a = ft_free_stack(stack_a);
 	}
 	return (0);
