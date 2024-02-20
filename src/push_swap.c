@@ -6,7 +6,7 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 16:57:09 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/20 14:25:26 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/20 15:11:56 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,11 +102,13 @@ void	push_swap(int argc, t_stack *stack_a, t_stack *stack_b)
 		ft_swap_4(stack_a);
 	else if (5 < argc && argc < 7)
 		ft_swap_5(stack_a);
-	else if (6 < argc)
+	else if (6 < argc && argc < 8)
+		ft_swap_5(stack_a);
+	else if (7 < argc)
 	{
 		stack_b = stack_a;
 		stack_a = ft_double_push(stack_a, stack_b);
-		if (argc < 9)
+		if (argc < 8)
 			ft_final_swap_1(stack_a, stack_b);
 		else
 			ft_swap(argc, stack_a, stack_b);
