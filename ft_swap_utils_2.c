@@ -6,7 +6,7 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 11:59:23 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/20 12:12:55 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/20 13:01:37 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_initial_swap(t_stack *stack_a)
 	else if (stack_a->i < stack_a->prev->i && stack_a->i > stack_a->next->i)
 	{
 		ft_direct_swap_3(stack_a);
-		printf("sa\n");
+		ft_printf("sa\n");
 	}
 }
 
@@ -41,7 +41,7 @@ void	ft_direct_rotate_5_a(t_stack *stack_a)
 	stack_a->next->next->i = stack_a->prev->prev->i;
 	stack_a->prev->prev->i = stack_a->prev->i;
 	stack_a->prev->i = i;
-	printf("ra\n");
+	ft_printf("ra\n");
 }
 
 void	ft_direct_reverse_rotate_5_a(t_stack *stack_a)
@@ -54,7 +54,7 @@ void	ft_direct_reverse_rotate_5_a(t_stack *stack_a)
 	stack_a->prev->prev->i = stack_a->next->next->i;
 	stack_a->next->next->i = stack_a->next->i;
 	stack_a->next->i = i;
-	printf("rra\n");
+	ft_printf("rra\n");
 }
 
 void	ft_direct_handling_5(t_stack *stack_a, t_stack *stack_b)

@@ -6,7 +6,7 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:09:29 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/20 12:11:37 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/20 13:01:40 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_direct_rotate_3_a(t_stack *stack_a)
 	stack_a->i = stack_a->next->i;
 	stack_a->next->i = stack_a->prev->i;
 	stack_a->prev->i = i;
-	printf("ra\n");
+	ft_printf("ra\n");
 }
 
 void	ft_direct_reverse_rotate_3_a(t_stack *stack_a)
@@ -31,7 +31,7 @@ void	ft_direct_reverse_rotate_3_a(t_stack *stack_a)
 	stack_a->i = stack_a->prev->i;
 	stack_a->prev->i = stack_a->next->i;
 	stack_a->next->i = i;
-	printf("rra\n");
+	ft_printf("rra\n");
 }
 
 void	ft_direct_swap_3(t_stack *stack)
@@ -52,7 +52,7 @@ void	ft_direct_rotate_4_a(t_stack *stack_a)
 	stack_a->next->i = stack_a->next->next->i;
 	stack_a->next->next->i = stack_a->prev->i;
 	stack_a->prev->i = i;
-	printf("ra\n");
+	ft_printf("ra\n");
 }
 
 void	ft_direct_reverse_rotate_4_a(t_stack *stack_a)
@@ -64,5 +64,5 @@ void	ft_direct_reverse_rotate_4_a(t_stack *stack_a)
 	stack_a->prev->i = stack_a->prev->prev->i;
 	stack_a->prev->prev->i = stack_a->next->i;
 	stack_a->next->i = i;
-	printf("rra\n");
+	ft_printf("rra\n");
 }

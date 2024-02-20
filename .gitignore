@@ -2,3 +2,4 @@
 .vscode
 checker
 *.o
+push_swap

@@ -6,7 +6,7 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 16:46:40 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/19 11:13:34 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/20 13:01:30 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ t_stack	*ft_r_rotate(int i, int n, t_stack *stack_b)
 			if (i > 0)
 			{
 				stack_b = stack_b->next;
-				printf("rr\n");
+				ft_printf("rr\n");
 				i--;
 			}
 			else
-				printf("ra\n");
+				ft_printf("ra\n");
 			n--;
 		}
 	}
@@ -51,11 +51,11 @@ t_stack	*ft_r_reverse_rotate(int i, int n, t_stack *stack_b)
 			if (-i > 0)
 			{
 				stack_b = stack_b->prev;
-				printf("rrr\n");
+				ft_printf("rrr\n");
 				i++;
 			}
 			else
-				printf("rra\n");
+				ft_printf("rra\n");
 			n--;
 		}
 	}

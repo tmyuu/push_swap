@@ -6,7 +6,7 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 09:40:16 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/20 12:57:18 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/20 13:01:42 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_connect_stack(t_stack *stack_a)
 		i = stack_a->i;
 		if (!ft_check_stack(stack_a, i))
 		{
-			printf("Error\n");
+			ft_printf("Error\n");
 			return (0);
 		}
 		stack_a = stack_a->next;

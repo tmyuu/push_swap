@@ -6,7 +6,7 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 11:55:57 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/20 12:21:22 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/20 13:01:35 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	ft_swap_5(t_stack *stack_a)
 	if (stack_b->i < stack_b->next->i)
 	{
 		ft_direct_swap_3(stack_b);
-		printf("sb\n");
+		ft_printf("sb\n");
 	}
 	ft_final_swap_1(stack_a, stack_b);
 }
@@ -81,7 +81,7 @@ void	ft_swap_6(t_stack *stack_a)
 	if (stack_b->i < stack_b->next->i)
 	{
 		ft_direct_swap_3(stack_b);
-		printf("sb\n");
+		ft_printf("sb\n");
 	}
 	ft_final_swap_1(stack_a, stack_b);
 }
