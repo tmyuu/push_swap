@@ -6,7 +6,7 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 09:31:39 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/13 20:28:15 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/20 12:56:12 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ int	ft_prep_stack(char **argv, t_stack *stack_a)
 	while (argv[i] != NULL)
 	{
 		if (!ft_atoi(argv[i], stack_a))
+		{
+			printf("Error\n");
 			return (0);
+		}
 		i++;
 		if (argv[i] == NULL)
 			break ;
