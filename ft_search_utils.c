@@ -6,7 +6,7 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:36:14 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/16 16:02:47 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/20 12:17:18 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	ft_search_b(t_stack *stack_a, t_stack *stack_b)
 	return (j);
 }
 
-int	ft_rotate_search_a(int n, t_stack *stack_a, t_stack *stack_b)
+int	ft_search(int n, t_stack *stack_a, t_stack *stack_b)
 {
 	int		i;
 	t_stack	*head;
@@ -93,7 +93,7 @@ int	ft_rotate_search_a(int n, t_stack *stack_a, t_stack *stack_b)
 	return (i);
 }
 
-int	ft_reverse_rotate_search_a(int n, t_stack *stack_a, t_stack *stack_b)
+int	ft_r_search(int n, t_stack *stack_a, t_stack *stack_b)
 {
 	int		i;
 	t_stack	*head;

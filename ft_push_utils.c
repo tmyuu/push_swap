@@ -6,7 +6,7 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 16:58:25 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/16 18:43:51 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/17 21:53:17 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,26 +45,6 @@ t_stack	*ft_double_push(t_stack *stack_a, t_stack *stack_b)
 	stack_b->i = stack_b->next->i;
 	stack_b->next->i = i;
 	return (head);
-}
-
-t_stack	*ft_final_push(t_stack *stack_a, t_stack *stack_b)
-{
-	t_stack	*head;
-
-	head = stack_b->next;
-	while (stack_a->i < stack_b->i || stack_b->i < stack_a->prev->i)
-		stack_a = ft_reverse_rotate_a(stack_a);
-	while (stack_a->i > stack_b->i && stack_b->i > stack_a->prev->i)
-		stack_a = ft_push_a(stack_a, stack_b);
-	stack_b = head;
-	if (stack_a->i != stack_b->i)
-		ft_final_push(stack_a, head);
-	else
-	{
-		while (stack_a->i > stack_a->prev->i)
-			stack_a = ft_reverse_rotate_a(stack_a);
-	}
-	return (NULL);
 }
 
 t_stack	*ft_push_a(t_stack *stack_a, t_stack *stack_b)

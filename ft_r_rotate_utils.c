@@ -6,7 +6,7 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 16:46:40 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/16 20:19:57 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/19 11:13:34 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,31 +101,13 @@ t_stack	*ft_simple_rotate(int flag, int n, t_stack *stack_a)
 	return (stack_a);
 }
 
-t_stack	*ft_final_rotate(t_stack *stack_b)
+void	ft_final_rotate(t_stack *stack_a, t_stack *stack_b)
 {
-	int		i;
-	int		j;
-	t_stack	*head;
-
-	i = 0;
-	head = stack_b;
-	while (stack_b->i < stack_b->prev->i)
-	{
-		stack_b = stack_b->next;
-		i++;
-	}
-	j = 0;
-	stack_b = head;
-	while (stack_b->i < stack_b->prev->i)
-	{
-		stack_b = stack_b->prev;
-		i++;
-	}
-	if (i < j)
-		while (head->i < head->prev->i)
-			head = ft_rotate_b(head);
+	(void)stack_b;
+	if (ft_final_dfs(stack_a) > 0)
+		while (stack_a->i > stack_a->prev->i)
+			stack_a = ft_rotate_a(stack_a);
 	else
-		while (head->i < head->prev->i)
-			head = ft_reverse_rotate_b(head);
-	return (head);
+		while (stack_a->i > stack_a->prev->i)
+			stack_a = ft_reverse_rotate_a(stack_a);
 }

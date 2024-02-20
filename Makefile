@@ -6,7 +6,7 @@
 #    By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 19:52:08 by ymatsui           #+#    #+#              #
-#    Updated: 2024/02/16 16:48:07 by ymatsui          ###   ########.fr        #
+#    Updated: 2024/02/20 12:12:05 by ymatsui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,9 @@ SRC = main.c \
       ft_rotate_utils.c \
       ft_r_rotate_utils.c \
       ft_search_utils.c \
-      ft_swap_utils.c \
+      ft_swap_utils_1.c \
+      ft_swap_utils_2.c \
+      ft_swap_utils_3.c \
       
 OBJ = $(SRC:.c=.o)
 
