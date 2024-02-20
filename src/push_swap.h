@@ -6,13 +6,17 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 09:32:30 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/20 12:27:45 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/20 14:30:22 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include "../ft_printf/ft_printf.h"
+# include <limits.h>
+# include <stdio.h>
+# include <stdlib.h>
 
 typedef struct s_stack
 {
@@ -82,3 +86,5 @@ int					ft_check_stack(t_stack *stack_a, int tmp);
 int					ft_connect_stack(t_stack *stack_a);
 t_stack				*ft_free_stack(t_stack *stack_a);
 t_stack				*ft_malloc_stack(void);
+
+#endif

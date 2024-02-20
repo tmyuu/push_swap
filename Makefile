@@ -6,41 +6,43 @@
 #    By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 19:52:08 by ymatsui           #+#    #+#              #
-#    Updated: 2024/02/20 12:12:05 by ymatsui          ###   ########.fr        #
+#    Updated: 2024/02/20 14:51:33 by ymatsui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRC = main.c \
-      push_swap.c \
-      stack_prep.c \
-      stack_utils.c \
-      dfs.c \
-      ft_push_utils.c \
-      ft_rotate_utils.c \
-      ft_r_rotate_utils.c \
-      ft_search_utils.c \
-      ft_swap_utils_1.c \
-      ft_swap_utils_2.c \
-      ft_swap_utils_3.c \
-      
-OBJ = $(SRC:.c=.o)
 
-all: $(NAME)
+INCLUDES = -I./ft_printf
+LFLAGS = -L./ft_printf -lftprintf
 
-%.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+SRC_DIR = src
+
+SRC = $(wildcard src/*.c)
+
+OBJ_DIR = obj
+OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+
+all: $(OBJ_DIR) $(NAME)
+
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJ)
-	@$(CC) $(OBJ) -o $(NAME)
+	make -C ./ft_printf
+	$(CC) $(OBJ) $(LFLAGS) -o $(NAME)
 
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJ_DIR)
+	make -C ./ft_printf clean
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(OBJ_DIR) $(NAME)
+	make -C ./ft_printf fclean
 
 re: fclean all
 
