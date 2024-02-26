@@ -6,7 +6,7 @@
 /*   By: ymatsui <ymatsui@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 09:31:39 by ymatsui           #+#    #+#             */
-/*   Updated: 2024/02/20 21:39:14 by ymatsui          ###   ########.fr       */
+/*   Updated: 2024/02/26 13:05:43 by ymatsui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ int	ft_atoi_util(int i, int sign, const char *str, t_stack *stack_a)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		if (stack_a->i > INT_MAX / 10)
-			return (0);
+			return (-1);
 		else if (sign == 1 && stack_a->i == INT_MAX / 10 && str[i] - '0' > 7)
-			return (0);
+			return (-1);
 		else if (sign == -1 && stack_a->i == INT_MAX / 10 && str[i] - '0' > 8)
-			return (0);
+			return (-1);
 		stack_a->i = stack_a->i * 10 + (str[i] - '0');
 		i++;
 	}
@@ -53,6 +53,8 @@ int	ft_atoi_util(int i, int sign, const char *str, t_stack *stack_a)
 
 int	ft_just_while(int i, const char *str)
 {
+	if (i < 0)
+		return (i);
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	return (i);
@@ -78,7 +80,7 @@ int	ft_atoi(const char *str, t_stack *stack_a)
 		i = ft_atoi_util(i, sign, str, stack_a);
 		stack_a->i = stack_a->i * sign;
 		i = ft_just_while(i, str);
-		if (str[i] == '\0')
+		if (i < 0 || str[i] == '\0')
 			break ;
 		stack_a = ft_malloc_next_stack(stack_a);
 		if (!stack_a)
@@ -96,7 +98,7 @@ int	ft_prep_stack(char **argv, t_stack *stack_a)
 		return (0);
 	while (argv[i] != NULL)
 	{
-		if (ft_atoi(argv[i], stack_a))
+		if (ft_atoi(argv[i], stack_a) > 0)
 		{
 			i++;
 			while (stack_a->next)
